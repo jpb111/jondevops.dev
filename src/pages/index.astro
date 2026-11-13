@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const email = 'contact@jondevops.dev';
+const linkedin = 'https://www.linkedin.com/in/john-paul-babu-49192219';
+
+const offers = [
+  { n: '01', t: 'Foundation build', tag: 'One-off setup fee', d: 'I design the architecture and build the project template your team builds on, set up the way professional teams run production systems, following AWS Well-Architected principles.', items: ['Stack selection and architecture design', 'Docker-based local development environment, with tests you can run locally', 'CI/CD pipelines with GitLab or GitHub Actions, running automated tests and security checks', 'AWS cloud infrastructure as code with Terraform: separate staging and production', 'Budget alarms and a monthly cost forecast from day one'] },
+  { n: '02', t: 'Guided build', tag: 'During development', d: 'Your team builds the app with AI tools inside the guardrails, and I stay alongside.', items: ['Security review of the code as it is written', 'Keeping the app on the agreed architecture', 'Help whenever you get stuck', 'Infrastructure access is restricted, reducing the risk of accidental changes'] },
+  { n: '03', t: 'Managed operations', tag: 'Monthly retainer', d: 'After go-live I run the platform so you can focus on the product and your customers.', items: ['Security scanning, log monitoring and blocking suspicious requests', 'Bug checks, regular security updates and upgrades for your runtimes, libraries and databases', 'Efficient resource use and a predictable AWS bill'] },
+];
+
+const steps = [
+  { t: 'Plan', d: 'I choose the right setup for your product and your budget, not the trendiest one.', items: ['Backend and frontend', 'Cloud setup on AWS', 'Fit for your budget'] },
+  { t: 'Set up', d: 'I build a ready-to-use starting point, the way professional teams run production systems.', items: ['Runs on your own computer', 'Deploys automatically', 'Separate staging (test) and production (live) environments in the cloud'] },
+  { t: 'Build', d: 'You build the features with AI tools.', items: ['Automated tests run on your computer and again in the pipeline on every change', 'My reviews help catch security issues', 'The app stays on the agreed plan'] },
+  { t: 'Look after', d: 'After launch I keep things running.', items: ['Monitor security, logs and costs', 'Keep software up to date', 'Step in when something needs attention'] },
+];
+
+const costs = [
+  { t: 'Monthly cost forecasts', d: 'You get a clear estimate of what the platform will cost before the bill arrives, so you can plan ahead.' },
+  { t: 'Budget alarms', d: 'AWS budgets and alerts are set up from day one. If spending drifts off forecast, you are alerted early, not at month end.' },
+  { t: 'Staging off when not in use', d: 'Staging is switched off when nobody is using it and rebuilt automatically when needed, so you pay for it only while it is in use.' },
+  { t: 'Ongoing optimisation', d: 'I review usage regularly and remove or resize what is not needed, to help keep cost in line as the product grows.' },
+];
+
+const databases = ['MySQL', 'MongoDB'];
+
+const stacks = ['Node.js', 'TypeScript', 'React', 'Next.js', 'PHP', 'Python', 'Go'];
+
+const skills = ['AWS', 'Terraform', 'Docker', 'GitLab CI/CD', 'GitHub Actions', 'Linux', 'Cloud security', 'Monitoring & logging', 'Delivery management'];
+---
+<Layout
+  title="jondevops.dev | AWS DevOps & security for teams building with AI"
+  description="AWS Certified Solutions Architect – Associate. Architecture, secure AWS infrastructure and ongoing monitoring and cloud cost control for non-technical teams building software with AI tools."
+>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="#top">jon<span>devops</span>.dev</a>
+      <nav aria-label="Main">
+        <a href="#offer">What I offer</a>
+        <a href="#how">How it works</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="eyebrow">AWS DevOps &amp; security for AI-built apps</div>
+      <h1>Build your app with AI. I help keep it secure and running.</h1>
+      <p class="lead">Have an idea but no engineering team? I set up the architecture, cloud infrastructure and deployment process, review your AI-built code for security issues, and look after the platform once it is live.</p>
+      <p class="note">No technical background needed. You build the app with AI tools, and I set up and protect everything around it.</p>
+      <p class="cert">AWS Solutions Architect</p>
+      <div class="btns">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn" href="#how">See how it works</a>
+      </div>
+    </div>
+
+    <section id="offer"><div class="wrap">
+      <h2>What I offer</h2>
+      <p class="sub">A one-off setup to get you started, then a simple monthly fee while I look after security, updates and day-to-day running.</p>
+      <div class="grid">
+        {offers.map((o) => (<div class="card"><div class="num">{o.n} · {o.tag}</div><h3>{o.t}</h3><p>{o.d}</p>{o.items && <ul class="list">{o.items.map((x) => <li>{x}</li>)}</ul>}</div>))}
+      </div>
+    </div></section>
+
+    <section id="how"><div class="wrap">
+      <h2>How it works</h2>
+      <p class="sub">Clear guardrails let non-engineers move fast with AI tools without putting the business at risk.</p>
+      <div class="grid steps">
+        {steps.map((s, i) => (<div class="card"><div class="num">Step {i + 1}</div><h3>{s.t}</h3><p>{s.d}</p><ul class="list">{s.items.map((x) => <li>{x}</li>)}</ul></div>))}
+      </div>
+    </div></section>
+
+    <section id="costs"><div class="wrap">
+      <h2>Keeping your cloud costs in check</h2>
+      <p class="sub">Cloud bills can quietly grow when nobody is watching. I design for cost from the start and keep an eye on it after launch.</p>
+      <div class="grid">
+        {costs.map((c) => (<div class="card"><h3>{c.t}</h3><p>{c.d}</p></div>))}
+      </div>
+    </div></section>
+
+    <section id="work"><div class="wrap">
+      <h2>Recent project</h2>
+      <p class="sub">Client details are kept confidential.</p>
+      <div class="card case">
+        <h3>Digital coupon and loyalty web app for a marketing business</h3>
+        <dl>
+          <dt>The problem</dt>
+          <dd>A small team of sales specialists knew exactly what they needed, a web app that lets businesses run digital coupon campaigns for their customers, but had no engineers to build it.</dd>
+          <dt>What I did</dt>
+          <dd>I chose the architecture and built the foundation: a Docker development environment, GitLab pipelines, and AWS staging and production defined in Terraform. The team then built the app themselves with AI tools inside that setup, while I reviewed security and helped whenever they got stuck.</dd>
+          <dt>The result</dt>
+          <dd>The app is live in production and handles customer data. Traffic grew steadily through its first week after launch, with fast response times and no server errors, while a web application firewall blocked thousands of automated attacks and bad-bot requests. I look after its security, monitoring and updates on a monthly basis.</dd>
+        </dl>
+      </div>
+    </div></section>
+
+    <section id="skills"><div class="wrap">
+      <h2>Tools I work with</h2>
+      <p class="sub">My day-to-day stack. I'm open to other tools when a project needs them.</p>
+      <div class="creds">
+        <div class="taggroups">
+          <div>
+            <h3 class="label">Infrastructure &amp; security</h3>
+            <ul class="tags">{skills.map((s) => <li>{s}</li>)}</ul>
+          </div>
+          <div>
+            <h3 class="label">Languages &amp; frameworks I can review</h3>
+            <ul class="tags">{stacks.map((s) => <li>{s}</li>)}</ul>
+          </div>
+          <div>
+            <h3 class="label">Databases</h3>
+            <ul class="tags">{databases.map((s) => <li>{s}</li>)}</ul>
+          </div>
+        </div>
+        <div class="badges">
+          <div class="badge" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="820a2902-b533-4466-8d70-89167759275a" data-share-badge-host="https://www.credly.com"></div>
+          <div class="badge" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="c0e34417-6bbd-45b3-a6e7-a3fa22c746b3" data-share-badge-host="https://www.credly.com"></div>
+          <script is:inline type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="about"><div class="wrap">
+      <h2>About</h2>
+      <div class="about">
+        <img class="avatar" src="/john.jpg" alt="John, DevOps consultant" width="160" height="160" loading="lazy" />
+        <div>
+          <p class="sub">I'm John, a DevOps consultant and AWS Certified Solutions Architect – Associate, based in Broadstairs, Kent, UK.</p>
+          <p class="sub">I help startups and businesses build their own apps with AI tools, without needing a full engineering team at the start. I have 12 years of experience building apps and managing projects and teams, including setting up offshore teams in India for technology companies. I set up the AWS cloud foundation, with deployment and separate test and live environments, then look after it with monitoring, security updates and cost alerts. You build the app, and I take care of the cloud, security and updates behind it. <a href={linkedin} target="_blank" rel="noopener noreferrer">See my LinkedIn profile</a>.</p>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="contact"><div class="wrap">
+      <h2>Let's talk</h2>
+      <p class="sub">Got an app idea, or something built with AI that needs a proper home? Send me a short note and I'll tell you what it would take.</p>
+      <div class="btns"><a class="btn primary" href={`mailto:${email}`}>{email}</a><a class="btn" href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap">&copy; {new Date().getFullYear()} jondevops.dev</div></footer>
+</Layout>
